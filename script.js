@@ -4,7 +4,7 @@ const container = document.querySelector(".container");
 
 //Rows
 const rows = document.createElement("div");
-let rowLength = 10;
+let rowLength = 5;
 rows.classList.add("rowin");
 container.appendChild(rows);
 
@@ -13,7 +13,7 @@ container.appendChild(rows);
 const sizeInput = document.querySelector("input");
 sizeInput.addEventListener("input", function(e) {
 
-    if (parseInt(e.target.value)<=20)
+    if (parseInt(e.target.value)<=50)
     {
         rowLength = parseInt(e.target.value);
     }
@@ -33,7 +33,7 @@ function createDivs(r) {
 
     for (let j=0; j<r; j++)
     {   
-        const row = document.createElement("div");
+        const col = document.createElement("div");
 
         for (let i = 0; i < c; i++) {  
             const div = document.createElement("div");
@@ -41,13 +41,35 @@ function createDivs(r) {
             div.style.width=`${600/r}px`;
             div.style.height=`${600/r}px`;
             div.style.margin=`${5/r}px`;
+            div.className = `cell`;
 
-            row.appendChild(div);  
+            col.appendChild(div);  
         }
-        rows.appendChild(row);
+        
+        rows.appendChild(col);
     }
     
 }
+
+
+const cellZ = document.querySelectorAll(".cell")
+
+    
+
+cellZ.forEach(c =>
+{
+    
+}
+)
+
+
+rows.addEventListener("mouseover", (e) =>
+        {
+            if (e.target.classList.contains('cell')) {
+                e.target.style.background = 'gray';
+              }
+    })
+
 
 
 
